@@ -77,6 +77,23 @@ void imprime(Lista* lst)
     printf("-------------------------------------------------\n");
 }
 
+int vazia (Lista* lst)
+{
+    if (lst == NULL)
+        return 1;
+    else
+        return 0;
+}
+
+void imprime_rec (Lista* lst)
+{
+    if (vazia(lst))
+        return;
+    printf("Dado: %d\n",lst->dado);
+    imprime_rec(lst->prox);
+    printf("---------------------------------\n");
+}
+
 void libera(Lista* lst)
 {
     Lista* p = lst;
@@ -120,19 +137,19 @@ Lista* retira (Lista* lst, int num)
 int main()
 {
     Lista*lst = inicializada();
-    int end1, valor_digitado, valor_retira, numero, posicao;
+    int  valor_digitado, valor_retira,n;
+    Lista*end1 = inicializada();
+    lst=insere_ordenado(lst,18);
+    imprime_rec(lst);
+    lst=insere_ordenado(lst,90);
+    imprime_rec(lst);
+    lst=insere_ordenado(lst,47);
+    imprime_rec(lst);
 
-    insere2(10,&lst);
-    imprime(lst);
-    insere2(12,&lst);
-    imprime(lst);
-    insere2(25,&lst);
-    imprime(lst);
-
-    printf("Digite uma posição:");
-    scanf("%d",&posicao);
-    lst = insere_ordenado(lst, posicao);
-    imprime(lst);
+    printf("Digite uma numero:");
+    scanf("%d",&n);
+    lst = insere_ordenado(lst, n);
+    imprime_rec(lst);
 
     printf("Entre com o numero para busca: ");
     scanf("%d",&valor_digitado);

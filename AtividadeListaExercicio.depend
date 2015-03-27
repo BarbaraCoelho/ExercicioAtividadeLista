@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1427395629 source:d:\engenhariaeletronica\5faseengenhariaeletronica\programacaodecomputadoresii\exercicioatividadelista\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
